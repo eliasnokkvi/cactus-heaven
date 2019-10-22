@@ -37,21 +37,24 @@ const configureMessageBroker = channel => {
 };
 
 
-const mapIncomingItem = (data) => {
+const mapIncomingItem = async (data) => {
     const { email } = data;
     const { items } = data;
-    console.log(items);
-    var sumPrice = items.reduce(function(total, arr){
-        console.log(arr.unitPrice);
-        return total = parseInt(total) + parseInt(arr.unitPrice);
+    var sumPrice = items.reduce(function (sum,item) { return sum + parseInt(item.unitPrice * item.quantity) }, 0);
+    const newOrder = {
+        customerEmail: email,
+        totalPrice: sumPrice,
+        orderDate: new Date()
+    };
+    const createdOrder = await db.Order.create(newOrder);
+    items.map(async x => {
+        const newOrderItem = {
+            ...x,
+            rowPrice: x.quantity * x.unitPrice,
+            orderId: createdOrder._id
+        };
+        await db.OrderItem.create(newOrderItem);
     });
-    console.log(sumPrice);
-    // const newOrder = {
-    //     customerEmail: email,
-    //     totalPrice: sumPrice,
-    //     orderDate: new Date()
-    // };
-    // console.log(newOrder);
 }
 
 (async () => {
@@ -61,10 +64,10 @@ const mapIncomingItem = (data) => {
     configureMessageBroker(channel);
 
     const { order_queue } = messageBrokerInfo.queues;
-    channel.consume(order_queue, data => {
+    channel.consume(order_queue, async data => {
         const dataJson = JSON.parse(data.content.toString());
         console.log("printing data");
-        mapIncomingItem(dataJson);
+        await mapIncomingItem(dataJson);
     }, {noAck: true});
 
     //TODO: Setup consumer

@@ -9,8 +9,10 @@ namespace logging_service
 {
     class LoggingService
     {
-        public void writeToFile(string message) {
-            using (StreamWriter writer = System.IO.File.AppendText("log.txt")) {
+        public void writeToFile(string message)
+        {
+            using (StreamWriter writer = System.IO.File.AppendText("log.txt"))
+            {
                 writer.WriteLine(message);
             }
         }
@@ -18,9 +20,11 @@ namespace logging_service
         {
             LoggingService logService = new LoggingService();
             var logging_queue = "logging_queue";
-            var factory = new ConnectionFactory() {HostName = "localhost" };
-            using (var connection = factory.CreateConnection()) {
-                using (var channel = connection.CreateModel()) {
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (var connection = factory.CreateConnection())
+            {
+                using (var channel = connection.CreateModel())
+                {
                     channel.QueueDeclare(
                         queue: logging_queue,
                         durable: true,
@@ -28,15 +32,17 @@ namespace logging_service
                         autoDelete: false,
                         arguments: null
                     );
+                    channel.QueueBind(logging_queue, "order_exchange", "create_order", null);
 
                     var consumer = new EventingBasicConsumer(channel);
-                    consumer.Received += (model, ea) => {
+                    consumer.Received += (model, ea) =>
+                    {
                         var body = ea.Body;
                         var message = Encoding.UTF8.GetString(body);
                         Console.WriteLine("[x] Received {0}", message);
                         logService.writeToFile("Log: " + message);
                     };
-                    channel.BasicConsume(queue: logging_queue,autoAck: true,consumer: consumer);
+                    channel.BasicConsume(queue: logging_queue, autoAck: true, consumer: consumer);
                     Console.WriteLine("Press 'enter' to exit.");
                     Console.ReadLine();
                 }
