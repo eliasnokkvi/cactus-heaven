@@ -1,0 +1,11 @@
+/Users/elias/Desktop/cactus-heaven/logging_service/bin/Debug/netcoreapp2.2/logging_service.deps.json
+/Users/elias/Desktop/cactus-heaven/logging_service/bin/Debug/netcoreapp2.2/logging_service.runtimeconfig.json
+/Users/elias/Desktop/cactus-heaven/logging_service/bin/Debug/netcoreapp2.2/logging_service.runtimeconfig.dev.json
+/Users/elias/Desktop/cactus-heaven/logging_service/bin/Debug/netcoreapp2.2/logging_service.dll
+/Users/elias/Desktop/cactus-heaven/logging_service/bin/Debug/netcoreapp2.2/logging_service.pdb
+/Users/elias/Desktop/cactus-heaven/logging_service/obj/Debug/netcoreapp2.2/logging_service.csprojAssemblyReference.cache
+/Users/elias/Desktop/cactus-heaven/logging_service/obj/Debug/netcoreapp2.2/logging_service.csproj.CoreCompileInputs.cache
+/Users/elias/Desktop/cactus-heaven/logging_service/obj/Debug/netcoreapp2.2/logging_service.AssemblyInfoInputs.cache
+/Users/elias/Desktop/cactus-heaven/logging_service/obj/Debug/netcoreapp2.2/logging_service.AssemblyInfo.cs
+/Users/elias/Desktop/cactus-heaven/logging_service/obj/Debug/netcoreapp2.2/logging_service.dll
+/Users/elias/Desktop/cactus-heaven/logging_service/obj/Debug/netcoreapp2.2/logging_service.pdb

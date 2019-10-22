@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/elias/Desktop/cactus-heaven/logging_service/logging_service.csproj": {}
+  },
+  "projects": {
+    "/Users/elias/Desktop/cactus-heaven/logging_service/logging_service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/elias/Desktop/cactus-heaven/logging_service/logging_service.csproj",
+        "projectName": "logging_service",
+        "projectPath": "/Users/elias/Desktop/cactus-heaven/logging_service/logging_service.csproj",
+        "packagesPath": "/Users/elias/.nuget/packages/",
+        "outputPath": "/Users/elias/Desktop/cactus-heaven/logging_service/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/elias/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "RabbitMQ": {
+              "target": "Package",
+              "version": "[3.6.2, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[5.1.2, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
