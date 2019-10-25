@@ -49,7 +49,7 @@ const configureMessageBroker = channel => {
         const { body } = request;
         const data = Buffer.from(JSON.stringify(body));
         channel.publish(order, createOrder, new Buffer(data));
-        return response.json("Message sent to consumer");
+        return response.status(200).json("Message sent to consumer");
     })
 
     app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));

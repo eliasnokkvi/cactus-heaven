@@ -1,4 +1,2 @@
-Log: {"name":"Hello daniel ima heeheee"}
 Log: {"email":"eliasg17@ru.is","items":[{"description":"A","quantity":1,"unitPrice":2000},{"description":"B","quantity":2,"unitPrice":3000}]}
-Log: {"email":"eliasg17@ru.is","items":[{"description":"A","quantity":1,"unitPrice":2000},{"description":"B","quantity":2,"unitPrice":3000}]}
-Log: {"email":"eliasg17@ru.is","items":[{"description":"C","quantity":1,"unitPrice":4000},{"description":"D","quantity":2,"unitPrice":1000}]}
+Log: {"email":"halldorbs7@ru.is","items":[{"description":"A","quantity":1,"unitPrice":2000},{"description":"B","quantity":2,"unitPrice":3000}]}

@@ -20,6 +20,8 @@ namespace logging_service
         {
             LoggingService logService = new LoggingService();
             var logging_queue = "logging_queue";
+            var exchange = "order_exchange";
+            var routingKey = "create_order";
             var factory = new ConnectionFactory() { HostName = "localhost" };
             using (var connection = factory.CreateConnection())
             {
@@ -32,7 +34,8 @@ namespace logging_service
                         autoDelete: false,
                         arguments: null
                     );
-                    channel.QueueBind(logging_queue, "order_exchange", "create_order", null);
+                    channel.ExchangeDeclare(exchange: exchange, type: "direct",durable: true);
+                    channel.QueueBind(logging_queue, exchange, routingKey, null);
 
                     var consumer = new EventingBasicConsumer(channel);
                     consumer.Received += (model, ea) =>

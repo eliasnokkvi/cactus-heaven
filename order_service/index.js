@@ -1,4 +1,3 @@
-// TODO: Implement the order service
 const amqp = require('amqplib/callback_api');
 const db = require('./data/db');
 const messageBrokerInfo = {
@@ -40,7 +39,7 @@ const configureMessageBroker = channel => {
 const mapIncomingItem = async (data) => {
     const { email } = data;
     const { items } = data;
-    var sumPrice = items.reduce(function (sum,item) { return sum + parseInt(item.unitPrice * item.quantity) }, 0);
+    var sumPrice = items.reduce(function (sum,item) { return sum + (item.unitPrice * item.quantity) }, 0);
     const newOrder = {
         customerEmail: email,
         totalPrice: sumPrice,
@@ -69,6 +68,4 @@ const mapIncomingItem = async (data) => {
         console.log("printing data");
         await mapIncomingItem(dataJson);
     }, {noAck: true});
-
-    //TODO: Setup consumer
 })().catch(e => console.error(e));
